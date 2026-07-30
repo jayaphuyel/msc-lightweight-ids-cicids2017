@@ -1,0 +1,13 @@
+{
+  "strategy": "smote",
+  "best_params": {
+    "clf__C": 100.0
+  },
+  "regularization": "L2",
+  "best_f1_macro": 0.6770345769369974,
+  "feature_key": "all",
+  "subsample_n": 50000,
+  "cv_folds": 5,
+  "elapsed_sec": 175.9,
+  "finished": "2026-07-30T18:08:46"
+}

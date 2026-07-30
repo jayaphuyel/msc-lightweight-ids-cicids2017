@@ -1,0 +1,28 @@
+2026-07-30 18:27:24,830 | INFO | ======================================================================
+2026-07-30 18:27:24,831 | INFO | DT TUNING START | 2026-07-30T18:27:24
+2026-07-30 18:27:24,927 | INFO | python=3.13.2 on Windows-11-10.0.26200-SP0
+2026-07-30 18:27:24,927 | INFO | subsample=200000 cv=5 n_jobs=1 grid={'clf__max_depth': [10, 20, 30], 'clf__min_samples_split': [2, 10], 'clf__min_samples_leaf': [1, 5]}
+2026-07-30 18:27:28,888 | INFO | Loading data\merged_clean.pkl ...
+2026-07-30 18:27:32,579 | INFO | Pickle shape: 79 columns, 2520798 rows
+2026-07-30 18:27:41,300 | INFO | Label cleaning: dropped 47 rows (['Heartbleed', 'Infiltration']); merged 2143 web-attack rows -> 'Web Attack'
+2026-07-30 18:27:41,303 | INFO | Classes after cleaning: 11 (expected 11)
+2026-07-30 18:27:41,305 | INFO | FEATURE SET = all68 (68 features)
+2026-07-30 18:27:55,679 | INFO | X ready: (2520751, 68) dtype=float32 | y classes=11
+2026-07-30 18:28:03,326 | INFO | Stratified subsample -> 200000 rows
+2026-07-30 18:28:03,411 | INFO | Subsample class distribution:
+Label
+BENIGN              166225
+Bot                    154
+DDoS                 10157
+DoS GoldenEye          816
+DoS Hulk             13714
+DoS Slowhttptest       415
+DoS slowloris          427
+FTP-Patator            471
+PortScan              7196
+SSH-Patator            255
+Web Attack             170
+2026-07-30 18:28:03,562 | INFO | GridSearch: 12 candidates x 5 folds = 60 fits
+2026-07-30 18:44:21,356 | INFO | BEST f1_macro=0.9585  params={'clf__max_depth': 20, 'clf__min_samples_leaf': 1, 'clf__min_samples_split': 2}
+2026-07-30 18:44:21,357 | INFO | Saved: dt_tuning_{cvresults.csv,gridsearch.pkl,best.json}
+2026-07-30 18:44:21,357 | INFO | DONE in 16.9 min

@@ -1,0 +1,13 @@
+{
+  "strategy": "class_weight",
+  "best_params": {
+    "clf__C": 10.0
+  },
+  "regularization": "L2",
+  "best_f1_macro": 0.49212414053188863,
+  "feature_key": "all",
+  "subsample_n": 50000,
+  "cv_folds": 5,
+  "elapsed_sec": 97.8,
+  "finished": "2026-07-30T18:01:41"
+}

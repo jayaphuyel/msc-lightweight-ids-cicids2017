@@ -1,0 +1,27 @@
+2026-07-30 12:32:55,999 | INFO | ======================================================================
+2026-07-30 12:32:56,001 | INFO | LR TUNING START | strategy=smote | 2026-07-30T12:32:56
+2026-07-30 12:32:56,073 | INFO | python=3.13.2 sklearn+imblearn on Windows-11-10.0.26200-SP0
+2026-07-30 12:32:56,075 | INFO | subsample=200000 cv=5 n_jobs=1 grid={'clf__C': [0.01, 0.1, 1.0, 10.0], 'clf__penalty': ['l1', 'l2']} max_iter=1000 tol=0.001
+2026-07-30 12:32:56,075 | INFO | SMOTE floor=20000 k_neighbors=5 (minorities to floor, not parity)
+2026-07-30 12:32:59,474 | INFO | Loading data\merged_clean.pkl ...
+2026-07-30 12:33:02,399 | INFO | Pickle shape: 79 columns, 2520798 rows
+2026-07-30 12:33:11,471 | INFO | Label cleaning: dropped 47 rows (['Heartbleed', 'Infiltration']); merged 2143 web-attack rows -> 'Web Attack'
+2026-07-30 12:33:11,475 | INFO | Classes after cleaning: 11 (expected 11)
+2026-07-30 12:33:11,477 | INFO | FEATURE SET = all68 (68 features)
+2026-07-30 12:33:30,537 | INFO | X ready: (2520751, 68)  dtype=float32  | y classes=11
+2026-07-30 12:33:41,319 | INFO | Stratified subsample -> 200000 rows
+2026-07-30 12:33:41,455 | INFO | Subsample class distribution:
+Label
+BENIGN              166225
+Bot                    154
+DDoS                 10157
+DoS GoldenEye          816
+DoS Hulk             13714
+DoS Slowhttptest       415
+DoS slowloris          427
+FTP-Patator            471
+PortScan              7196
+SSH-Patator            255
+Web Attack             170
+2026-07-30 12:33:47,925 | INFO | Pipeline steps: scaler -> smote -> clf
+2026-07-30 12:33:47,925 | INFO | GridSearch: 8 candidates x 5 folds = 40 fits

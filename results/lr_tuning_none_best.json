@@ -1,0 +1,13 @@
+{
+  "strategy": "none",
+  "best_params": {
+    "clf__C": 10.0
+  },
+  "regularization": "L2",
+  "best_f1_macro": 0.5761832470195021,
+  "feature_key": "all",
+  "subsample_n": 50000,
+  "cv_folds": 5,
+  "elapsed_sec": 73.2,
+  "finished": "2026-07-30T17:59:06"
+}

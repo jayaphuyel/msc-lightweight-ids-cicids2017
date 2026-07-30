@@ -1,0 +1,29 @@
+2026-07-30 18:00:03,723 | INFO | ======================================================================
+2026-07-30 18:00:03,724 | INFO | LR TUNING START | strategy=class_weight | 2026-07-30T18:00:03
+2026-07-30 18:00:03,799 | INFO | python=3.13.2 sklearn+imblearn on Windows-11-10.0.26200-SP0
+2026-07-30 18:00:03,799 | INFO | subsample=50000 cv=5 n_jobs=1 solver=lbfgs grid={'clf__C': [0.01, 0.1, 1.0, 10.0]} max_iter=200 tol=0.001
+2026-07-30 18:00:07,820 | INFO | Loading data\merged_clean.pkl ...
+2026-07-30 18:00:10,146 | INFO | Pickle shape: 79 columns, 2520798 rows
+2026-07-30 18:00:16,817 | INFO | Label cleaning: dropped 47 rows (['Heartbleed', 'Infiltration']); merged 2143 web-attack rows -> 'Web Attack'
+2026-07-30 18:00:16,822 | INFO | Classes after cleaning: 11 (expected 11)
+2026-07-30 18:00:16,825 | INFO | FEATURE SET = all68 (68 features)
+2026-07-30 18:00:34,400 | INFO | X ready: (2520751, 68)  dtype=float32  | y classes=11
+2026-07-30 18:00:41,720 | INFO | Stratified subsample -> 50000 rows
+2026-07-30 18:00:41,761 | INFO | Subsample class distribution:
+Label
+BENIGN              41556
+Bot                    39
+DDoS                 2539
+DoS GoldenEye         204
+DoS Hulk             3428
+DoS Slowhttptest      104
+DoS slowloris         107
+FTP-Patator           118
+PortScan             1799
+SSH-Patator            64
+Web Attack             42
+2026-07-30 18:00:42,177 | INFO | Pipeline steps: scaler -> clf
+2026-07-30 18:00:42,178 | INFO | GridSearch: 4 candidates x 5 folds = 20 fits
+2026-07-30 18:01:41,545 | INFO | BEST f1_macro=0.4921  params={'clf__C': 10.0}
+2026-07-30 18:01:41,546 | INFO | Saved: lr_tuning_class_weight_{cvresults.csv,gridsearch.pkl,best.json}
+2026-07-30 18:01:41,546 | INFO | DONE in 1.6 min
