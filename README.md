@@ -1,42 +1,48 @@
-# Lightweight Machine Learning Approaches for Network Intrusion Detection
+Lightweight Machine Learning Approaches for Network Intrusion Detection
 
-MSc Cyber Security dissertation project — University of the West of Scotland
+MSc Cyber Security dissertation project (University of the West of Scotland).
 
-**Author:** Jaya Prasad Phuyel (B01831178)
-**Supervisor:** Ahamed Tuani
+This project develops and compares two lightweight classifiers — Logistic Regression and a Decision Tree — for network intrusion detection on the CICIDS2017 dataset. Both models are evaluated on detection quality (macro-averaged F1 and per-class recall) and on computational cost (training time, inference speed, model size and peak memory), so that the "lightweight" claim is measured rather than assumed.
 
-## Overview
+Headline result: the Decision Tree reaches a macro-F1 of 0.9488 against the Logistic Regression's 0.7670, while also being faster to train, faster at inference, smaller on disk and lighter on memory.
 
-A controlled comparison of two lightweight classifiers — Logistic Regression
-and Decision Tree — for network intrusion detection on the CICIDS2017 dataset.
-The study measures both detection quality (per-class recall, F1, ROC-AUC,
-false alarm rate) and computational cost (training time, prediction time,
-memory use).
+Dataset
 
-## Dataset
+This repository does not include the CICIDS2017 data (it is large and licensed). Download the eight CSV traffic files from the Canadian Institute for Cybersecurity:
 
-CICIDS2017 is **not** included in this repository due to its size.
-Download the eight CSV files from the Canadian Institute for Cybersecurity:
 https://www.unb.ca/cic/datasets/ids-2017.html
 
-Place them in the `data/` folder.
+Place the CSV files in a local data/ folder (this folder is gitignored). Notebook 01_baseline.ipynb shows exactly where the files are expected.
 
-## Setup
+Environment
+Python 3.13.2
 
-## Notebooks
+Install the dependencies (pinned to the versions used in the study):
 
-| Notebook | Purpose |
-|---|---|
-| `01_baseline.ipynb` | Merge, clean, stratified split, baseline LR + DT (binary) |
-| `02_feature_selection.ipynb` | Filter-based feature selection |
-| `03_smote_multiclass.ipynb` | SMOTE (training folds only) + multiclass |
-| `04_tuning.ipynb` | Grid Search, stratified 10-fold cross validation |
-| `05_evaluation_cost.ipynb` | Final test-set evaluation + cost profiling |
+pip install -r requirements.txt
+How to reproduce
 
-## Reproducibility
+Run the notebooks in order:
 
-Random seed fixed at 42 for the train/test split, SMOTE and model
-initialisation. Cost measurements taken on an AMD Ryzen 5 5500U with
-8 GB RAM running Windows 11.
+notebooks/01_baseline.ipynb — data consolidation, cleaning and an initial binary baseline
+notebooks/02_feature_selection.ipynb — mutual-information ranking and feature-subset benchmark
+notebooks/03_smote_multiclass.ipynb — leakage-safe SMOTE oversampling experiment
+notebooks/04_tuning.ipynb — cross-validated grid search (scored on macro-F1)
+notebooks/05_evaluation.ipynb — final evaluation on the held-out test set and cost profiling
 
-## Structure
+The two heaviest tuning searches are also provided as standalone scripts:
+
+python src/dt_tuning.py
+python src/lr_tuning.py
+Repository layout
+notebooks/ — the numbered analysis notebooks (01–05)
+src/ — standalone tuning scripts for the Decision Tree and Logistic Regression
+results/ — saved best-parameter JSONs, tuning logs and confusion-matrix images
+figures/ — figures used in the dissertation (ML vs DL, mutual information, feature trade-off)
+Key saved outputs
+results/dt_tuning_best.json, results/lr_tuning_*_best.json — tuned hyper-parameters and CV scores
+results/dt_final_confusion_matrix.png, results/lr_final_confusion_matrix.png — test-set confusion matrices
+results/lightweight_comparison.png — cost comparison of the two models
+Author
+
+Jaya Prasad Phuyel — MSc Cyber Security, University of the West of Scotland.
